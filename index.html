@@ -204,6 +204,46 @@
   .work-card-wide { grid-column: 1 / -1; }
   .work-card-wide .work-thumb-placeholder { aspect-ratio: 16/5; }
 
+  /* PRICING */
+  .pricing-section { padding: 6rem 3rem; border-top: 1px solid var(--border); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 3rem; }
+  .pricing-card {
+    border-radius: 16px; padding: 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+  .pricing-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .pricing-card.featured { background: rgba(74,158,255,0.08); border: 1.5px solid rgba(74,158,255,0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+  .pricing-card.featured::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(74,158,255,0.08) 0%, rgba(74,158,255,0.02) 100%); pointer-events: none; }
+  .pricing-card.featured:hover { transform: translateY(-6px); background: rgba(74,158,255,0.14); border-color: rgba(74,158,255,0.8); box-shadow: 0 20px 50px rgba(74,158,255,0.2); }
+  .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #4a9eff; color: #fff; font-size: 11px; font-weight: 500; padding: 3px 14px; border-radius: 999px; white-space: nowrap; letter-spacing: 0.04em; }
+  .pricing-plan { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; margin-bottom: 10px; }
+  .pricing-price { font-size: 38px; font-weight: 700; color: #e8e6e0; line-height: 1; margin-bottom: 4px; }
+  .pricing-card.featured .pricing-price { color: #fff; }
+  .pricing-price span { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.35); }
+  .pricing-desc { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; line-height: 1.6; }
+  .pricing-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 1rem; }
+  .pricing-card.featured .pricing-divider { border-color: rgba(74,158,255,0.2); }
+  .pricing-feature { font-size: 13px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+  .pricing-card.featured .pricing-feature { color: rgba(255,255,255,0.8); }
+  .p-check { width: 17px; height: 17px; border-radius: 50%; background: rgba(74,158,255,0.2); border: 1px solid rgba(74,158,255,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .p-check svg { width: 9px; height: 9px; stroke: #4a9eff; fill: none; }
+  .p-check-plain { width: 17px; height: 17px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+  .pricing-card:hover .p-check-plain { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+  .p-check-plain svg { width: 9px; height: 9px; stroke: rgba(255,255,255,0.4); fill: none; }
+  .p-x { width: 17px; height: 17px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .p-x svg { width: 9px; height: 9px; stroke: rgba(255,255,255,0.2); fill: none; }
+  .p-na { opacity: 0.3; }
+  .pricing-btn { width: 100%; margin-top: 1.2rem; padding: 10px; border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
+  .pricing-btn-default { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); }
+  .pricing-btn-default:hover { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.25); }
+  .pricing-btn-accent { background: #4a9eff; color: #fff; border: none; }
+  .pricing-btn-accent:hover { background: #6ab0ff; }
+
   /* EXPERIENCE */
   .exp-section {
     padding: 6rem 3rem;
@@ -325,6 +365,8 @@
     .hero-name { font-size: clamp(36px, 10vw, 64px); white-space: normal; margin-bottom: 1rem; }
     .hero-roles { gap: 1rem; }
     .hero-role { font-size: 13px; }
+    .pricing-section { padding: 3rem 1.5rem; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
     .work-grid { grid-template-columns: 1fr 1fr; }
     .work-card[style*="grid-column"] { grid-column: 1 / -1; }
     .exp-section { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
@@ -458,6 +500,47 @@
         <span style="font-size:11px;color:#9a6a3a;letter-spacing:0.1em;">POSTER</span>
       </div>
       <div class="work-label">Event Poster</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <p class="section-label fade-up">Pricing</p>
+  <div class="pricing-grid">
+    <div class="pricing-card fade-up">
+      <div class="pricing-plan">Starter</div>
+      <div class="pricing-price">$0<span>/mo</span></div>
+      <div class="pricing-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Lorem ipsum feature</div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Dolor sit amet</div>
+      <div class="pricing-feature p-na"><div class="p-x"><svg viewBox="0 0 10 10"><line x1="3" y1="3" x2="7" y2="7" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke-width="1.5" stroke-linecap="round"/></svg></div>Consectetur adipiscing</div>
+      <div class="pricing-feature p-na"><div class="p-x"><svg viewBox="0 0 10 10"><line x1="3" y1="3" x2="7" y2="7" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke-width="1.5" stroke-linecap="round"/></svg></div>Priority support</div>
+      <button class="pricing-btn pricing-btn-default">Get started</button>
+    </div>
+    <div class="pricing-card featured fade-up" style="transition-delay:0.1s">
+      <div class="pricing-badge">Most popular</div>
+      <div class="pricing-plan">Pro</div>
+      <div class="pricing-price">$29<span>/mo</span></div>
+      <div class="pricing-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><div class="p-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Lorem ipsum feature</div>
+      <div class="pricing-feature"><div class="p-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Dolor sit amet</div>
+      <div class="pricing-feature"><div class="p-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Consectetur adipiscing</div>
+      <div class="pricing-feature p-na"><div class="p-x"><svg viewBox="0 0 10 10"><line x1="3" y1="3" x2="7" y2="7" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke-width="1.5" stroke-linecap="round"/></svg></div>Priority support</div>
+      <button class="pricing-btn pricing-btn-accent">Get started</button>
+    </div>
+    <div class="pricing-card fade-up" style="transition-delay:0.2s">
+      <div class="pricing-plan">Agency</div>
+      <div class="pricing-price">$79<span>/mo</span></div>
+      <div class="pricing-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Lorem ipsum feature</div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Dolor sit amet</div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Consectetur adipiscing</div>
+      <div class="pricing-feature"><div class="p-check-plain"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke-width="1.5" stroke-linecap="round"/></svg></div>Priority support</div>
+      <button class="pricing-btn pricing-btn-default">Get started</button>
     </div>
   </div>
 </section>
